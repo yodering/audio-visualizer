@@ -2,12 +2,9 @@ var song
 var fft
 var image
 var particles = []
-let db
-let audioInput
+var db
+var audioInput
 
-function preload() {
-  song = loadSound('assets/audio/no9.mp3')
-}
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
