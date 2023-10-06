@@ -2,7 +2,6 @@ body {
     background-color: #000000;
   }
 
-
   .menu {
     display: none;
     position: fixed;
@@ -10,9 +9,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height:400px;
-    padding: 20px;
-    background-color: rgb(46, 46, 46);
+    height: 400px;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    opacity: 50%;
     border-radius: 20px;
   }
   
