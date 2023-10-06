@@ -32,7 +32,7 @@ function draw() {
     rotate(random(-0.5, 0.5))
   }
   if (img) {
-    image(img, 0, 0, width, height); 
+    image(img, 0, 0, width, height)
   }
   
 
@@ -120,18 +120,18 @@ function windowResized() {
 
 function storeImage() {
   const file = imageInput.files[0];
-  if (!file) return alert('Please select an image file');
+  if (!file) return alert('Please select an image file')
 
-  const reader = new FileReader();
-  reader.readAsArrayBuffer(file);
+  const reader = new FileReader()
+  reader.readAsArrayBuffer(file)
   reader.onload = (event) => {
     const imageData = event.target.result;
     openDB().then(db => {
-      const transaction = db.transaction(['images'], 'readwrite');
-      const store = transaction.objectStore('images');
+      const transaction = db.transaction(['images'], 'readwrite')
+      const store = transaction.objectStore('images')
       store.add(imageData);
     }).catch(err => {
-      console.error('Error storing image:', err);
+      console.error('Error storing image:', err)
     });
   };
 }
@@ -139,27 +139,27 @@ function storeImage() {
 
 function loadAndDisplayImage() {
   openDB().then(db => {
-    const transaction = db.transaction(['images'], 'readonly');
-    const store = transaction.objectStore('images');
-    const getRequest = store.getAll();
+    const transaction = db.transaction(['images'], 'readonly')
+    const store = transaction.objectStore('images')
+    const getRequest = store.getAll()
 
     getRequest.onsuccess = (event) => {
       const imageData = event.target.result[0];
-      if (!imageData) return alert('No image found');
+      if (!imageData) return alert('No image found')
 
       const imageBlob = new Blob([imageData]);
-      const imageUrl = URL.createObjectURL(imageBlob);
+      const imageUrl = URL.createObjectURL(imageBlob)
       loadImage(imageUrl, function(loadedImg) {
-        loadedImg.filter(BLUR, 12);
-        img = loadedImg;
+        loadedImg.filter(BLUR, 12)
+        img = loadedImg
       });
     };
 
     getRequest.onerror = (event) => {
-      console.error('Error retrieving data:', event);
+      console.error('Error retrieving data:', event)
     };
   }).catch(err => {
-    console.error('Error opening DB for image retrieval:', err);
+    console.error('Error opening DB for image retrieval:', err)
   });
 }
 
@@ -167,26 +167,26 @@ function loadAndDisplayImage() {
 function clearImage() {
   openDB().then(db => {
     clearImageData(db, 'images');
-    img = null; // Set img to null
+    img = null
   }).catch(err => {
-    console.error('Error clearing image:', err);
+    console.error('Error clearing image:', err)
   });
 }
 
 function clearImageData(db, storeName) {
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([storeName], 'readwrite');
-    const store = transaction.objectStore(storeName);
-    const clearRequest = store.clear(); // This will clear all records in the object store
+    const transaction = db.transaction([storeName], 'readwrite')
+    const store = transaction.objectStore(storeName)
+    const clearRequest = store.clear()
     
     clearRequest.onsuccess = (event) => {
-      resolve(); // Resolve the promise since the clear operation was successful
-    };
+      resolve(); 
+    }
     
     clearRequest.onerror = (event) => {
-      reject('Error clearing data'); // Reject the promise with an error message
-    };
-  });
+      reject('Error clearing data')
+    }
+  })
 }
 
 function storeAudio() {
@@ -196,7 +196,7 @@ function storeAudio() {
   const reader = new FileReader()
   reader.readAsArrayBuffer(file)
   reader.onload = (event) => {
-    const audioData = event.target.result;
+    const audioData = event.target.result
     openDB().then(db => {
       addData(db, 'audio', audioData)
     })
@@ -206,25 +206,25 @@ function storeAudio() {
 
 function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('audioDB', 2); // You might need to increase the version number
+    const request = indexedDB.open('audioDB', 2); 
     request.onupgradeneeded = (event) => {
-      db = event.target.result;
+      db = event.target.result
       if (!db.objectStoreNames.contains('audio')) {
-        db.createObjectStore('audio', { autoIncrement: true });
+        db.createObjectStore('audio', { autoIncrement: true })
       }
       if (!db.objectStoreNames.contains('images')) {
-        db.createObjectStore('images', { autoIncrement: true });
+        db.createObjectStore('images', { autoIncrement: true })
       }
-    };
+    }
 
     request.onsuccess = (event) => {
-      resolve(event.target.result);
-    };
+      resolve(event.target.result)
+    }
 
     request.onerror = (event) => {
-      reject('Error opening DB');
-    };
-  });
+      reject('Error opening DB')
+    }
+  })
 }
 
 
@@ -241,7 +241,7 @@ function retrieveData(db, storeName) {
     const getRequest = store.getAll()
 
     getRequest.onsuccess = (event) => {
-      resolve(event.target.result[0]) // Gets the first audio data found, adjust as needed
+      resolve(event.target.result[0]) 
     }
 
     getRequest.onerror = (event) => {
@@ -271,11 +271,11 @@ function clearData(db, storeName) {
     const clearRequest = store.clear(); // This will clear all records in the object store
     
     clearRequest.onsuccess = (event) => {
-      resolve(); // Resolve the promise since the clear operation was successful
+      resolve(); 
     };
     
     clearRequest.onerror = (event) => {
-      reject('Error clearing data') // Reject the promise with an error message
+      reject('Error clearing data') 
     }
   })
 }
