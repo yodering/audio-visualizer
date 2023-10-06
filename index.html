@@ -9,6 +9,14 @@
 </head>
 <body>
 
+  <input type="file" id="audioInput" accept="audio/mp3">
+  <button onclick="storeAudio()">Store Audio</button>
+  <button onclick="loadAudio()">Load Audio</button>
+  <button onclick="playAudio()">Play Audio</button>
+  <button onclick="pauseAudio()">Pause Audio</button>  
+  <button onclick="clearAudio()">Clear Audio</button>
+
+
   <script src="assets/js/p5.js"></script>
   <script src="assets/js/p5.sound.js"></script>
   <script src="assets/js/sketch.js"></script>

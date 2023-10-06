@@ -2,6 +2,8 @@ var song
 var fft
 var image
 var particles = []
+let db
+let audioInput
 
 function preload() {
   song = loadSound('assets/audio/no9.mp3')
@@ -11,6 +13,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES)
   fft = new p5.FFT()
+  audioInput = document.getElementById('audioInput');
 }
 
 function draw() {
@@ -54,16 +57,7 @@ function draw() {
 }
 
 
-function mouseClicked() {
-  if (song.isPlaying()) {
-    song.pause()
-    noLoop()
-  }
-  else {
-    song.play()
-    loop()
-  }
-}
+
 
 class Particle {
   constructor() {
@@ -99,3 +93,122 @@ class Particle {
     ellipse(this.pos.x, this.pos.y, this.w)
   }
 }
+
+function storeAudio() {
+  const file = audioInput.files[0];
+  if (!file) return alert('Please select a file');
+
+  const reader = new FileReader();
+  reader.readAsArrayBuffer(file);
+  reader.onload = (event) => {
+    const audioData = event.target.result;
+    openDB().then(db => {
+      addData(db, 'audio', audioData);
+    });
+  };
+}
+
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('audioDB', 1);
+
+    request.onupgradeneeded = (event) => {
+      db = event.target.result;
+      db.createObjectStore('audio', { autoIncrement: true });
+    };
+
+    request.onsuccess = (event) => {
+      resolve(event.target.result);
+    };
+
+    request.onerror = (event) => {
+      reject('Error opening DB');
+    };
+  });
+}
+
+function addData(db, storeName, data) {
+  const transaction = db.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName);
+  store.add(data);
+}
+
+function retrieveData(db, storeName) {
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([storeName], 'readonly');
+    const store = transaction.objectStore(storeName);
+    const getRequest = store.getAll();
+
+    getRequest.onsuccess = (event) => {
+      resolve(event.target.result[0]); // Gets the first audio data found, adjust as needed
+    };
+
+    getRequest.onerror = (event) => {
+      reject('Error retrieving data');
+    };
+  });
+}
+
+function clearAudio() {
+  openDB().then(db => {
+    clearData(db, 'audio');
+    if (song) {
+      song.stop(); // Stop the current song if it is playing
+      song.dispose(); // Dispose of the song to free up memory
+      song = null; // Set song to null
+    }
+    alert('Audio cleared successfully');
+  }).catch(err => {
+    console.error('Error clearing audio:', err);
+  });
+}
+
+function clearData(db, storeName) {
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([storeName], 'readwrite');
+    const store = transaction.objectStore(storeName);
+    const clearRequest = store.clear(); // This will clear all records in the object store
+    
+    clearRequest.onsuccess = (event) => {
+      resolve(); // Resolve the promise since the clear operation was successful
+    };
+    
+    clearRequest.onerror = (event) => {
+      reject('Error clearing data'); // Reject the promise with an error message
+    };
+  });
+}
+
+function loadAudio() {
+  openDB().then(db => {
+    retrieveData(db, 'audio').then(audioData => {
+      if (!audioData) return alert('No audio found');
+
+      const audioBlob = new Blob([audioData]);
+      const audioUrl = URL.createObjectURL(audioBlob);
+      if (song) song.dispose(); // Dispose of previous song
+      song = loadSound(audioUrl); // Load the new song without playing
+    });
+  }).catch(err => {
+    console.error('Error loading audio:', err);
+  });
+}
+
+function playAudio() {
+  if (song && !song.isPlaying()) {
+    song.play(); // Play the song if it is not already playing
+  } else {
+    alert('No audio is loaded or it is already playing');
+  }
+}
+
+function pauseAudio() {
+  if (song && song.isPlaying()) {
+    song.pause(); // Pause the song if it is playing
+  } else {
+    alert('No audio is loaded or it is already paused');
+  }
+}
+
+
