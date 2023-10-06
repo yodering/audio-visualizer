@@ -4,7 +4,7 @@ var image
 var particles = []
 
 function preload() {
-  song = loadSound('assets/audio/fancypants.mp3')
+  song = loadSound('assets/audio/no9.mp3')
 }
 
 function setup() {
@@ -16,7 +16,7 @@ function setup() {
 function draw() {
   background(0)
   stroke(255)
-  strokeWeight(3)
+  strokeWeight(2)
   noFill()
 
   translate(width / 2, height / 2)
@@ -30,7 +30,7 @@ function draw() {
   for (var t = -1; t <= 1;  t+= 2) {
     beginShape()
     for (var i = 0; i <= 180; i += 0.5) {
-      var index = floor(map(i, 0, width, 0, wave.length - 1))
+      var index = floor(map(i, 0, 180, 0, wave.length - 1))
       var r = map(wave[index], -1, 1, 150, 350)
       var x = r * sin(i) * t 
       var y = r * cos(i)
