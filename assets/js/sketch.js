@@ -1,28 +1,52 @@
 var song
 var fft
-var image
+var img
 var particles = []
 var db
 var audioInput
+var imageInput
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES)
   fft = new p5.FFT()
-  audioInput = document.getElementById('audioInput');
+  audioInput = document.getElementById('audioInput')
+  imageInput = document.getElementById('imageInput')
+  imageMode(CENTER)
+  rectMode(CENTER)
 }
 
 function draw() {
   background(0)
   stroke(255)
-  strokeWeight(2)
+  strokeWeight(3)
   noFill()
 
   translate(width / 2, height / 2)
-
   fft.analyze()
   amp = fft.getEnergy(20, 200)
+
+  push()
+  if (amp > 230) {
+    rotate(random(-0.5, 0.5))
+  }
+  if (img) {
+    image(img, 0, 0, width, height); // or your desired coordinates and dimensions
+  }
+  
+
+  pop()
+
+  var alpha = map(amp, 0, 255, 180, 150)
+  fill(0, alpha)
+  noStroke()
+  rect(0, 0, width, height)
+
+  stroke(255)
+  strokeWeight(3)
+  noFill()
+
 
   var wave = fft.waveform()
 
@@ -89,6 +113,81 @@ class Particle {
   }
 }
 
+function storeImage() {
+  const file = imageInput.files[0];
+  if (!file) return alert('Please select an image file');
+
+  const reader = new FileReader();
+  reader.readAsArrayBuffer(file);
+  reader.onload = (event) => {
+    const imageData = event.target.result;
+    openDB().then(db => {
+      const transaction = db.transaction(['images'], 'readwrite');
+      const store = transaction.objectStore('images');
+      store.add(imageData);
+    }).catch(err => {
+      console.error('Error storing image:', err);
+    });
+  };
+}
+
+
+function loadAndDisplayImage() {
+  openDB().then(db => {
+    const transaction = db.transaction(['images'], 'readonly');
+    const store = transaction.objectStore('images');
+    const getRequest = store.getAll();
+
+    getRequest.onsuccess = (event) => {
+      const imageData = event.target.result[0];
+      if (!imageData) return alert('No image found');
+
+      const imageBlob = new Blob([imageData]);
+      const imageUrl = URL.createObjectURL(imageBlob);
+      loadImage(imageUrl, function(loadedImg) {
+        loadedImg.filter(BLUR, 12);
+        img = loadedImg;
+      });
+    };
+
+    getRequest.onerror = (event) => {
+      console.error('Error retrieving data:', event);
+    };
+  }).catch(err => {
+    console.error('Error opening DB for image retrieval:', err);
+  });
+}
+
+
+function clearImage() {
+  openDB().then(db => {
+    clearImageData(db, 'images');
+    img = null; // Set img to null
+  }).catch(err => {
+    console.error('Error clearing image:', err);
+  });
+}
+
+function clearImageData(db, storeName) {
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([storeName], 'readwrite');
+    const store = transaction.objectStore(storeName);
+    const clearRequest = store.clear(); // This will clear all records in the object store
+    
+    clearRequest.onsuccess = (event) => {
+      resolve(); // Resolve the promise since the clear operation was successful
+    };
+    
+    clearRequest.onerror = (event) => {
+      reject('Error clearing data'); // Reject the promise with an error message
+    };
+  });
+}
+
+
+
+
+
 
 function storeAudio() {
   const file = audioInput.files[0]
@@ -107,22 +206,28 @@ function storeAudio() {
 
 function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('audioDB', 1)
+    const request = indexedDB.open('audioDB', 2); // You might need to increase the version number
 
     request.onupgradeneeded = (event) => {
-      db = event.target.result
-      db.createObjectStore('audio', { autoIncrement: true })
-    }
+      db = event.target.result;
+      if (!db.objectStoreNames.contains('audio')) {
+        db.createObjectStore('audio', { autoIncrement: true });
+      }
+      if (!db.objectStoreNames.contains('images')) {
+        db.createObjectStore('images', { autoIncrement: true });
+      }
+    };
 
     request.onsuccess = (event) => {
-      resolve(event.target.result)
-    }
+      resolve(event.target.result);
+    };
 
     request.onerror = (event) => {
-      reject('Error opening DB')
-    }
-  })
+      reject('Error opening DB');
+    };
+  });
 }
+
 
 function addData(db, storeName, data) {
   const transaction = db.transaction([storeName], 'readwrite')

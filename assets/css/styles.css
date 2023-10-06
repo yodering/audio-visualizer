@@ -1,5 +1,6 @@
 body {
     background-color: #000000;
+    
   }
 
   .menu {
@@ -12,7 +13,6 @@ body {
     height: 400px;
     padding: 30px;
     background-color: rgb(255, 255, 255);
-    opacity: 50%;
     border-radius: 20px;
   }
   
