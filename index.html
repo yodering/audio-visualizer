@@ -9,12 +9,18 @@
 </head>
 <body>
 
-  <input type="file" id="audioInput" accept="audio/mp3">
-  <button onclick="storeAudio()">Store Audio</button>
-  <button onclick="loadAudio()">Load Audio</button>
-  <button onclick="playAudio()">Play Audio</button>
-  <button onclick="pauseAudio()">Pause Audio</button>  
-  <button onclick="clearAudio()">Clear Audio</button>
+  
+  <div class="menu" id="menu">
+    <ul>
+      <li><input type="file" id="audioInput" accept="audio/mp3"></li>
+      <li><button onclick="storeAudio()">Upload Audio</button></li>
+      <li><button onclick="loadAudio()">Load Audio</button></li>
+      <li> <button onclick="playAudio()">Play Audio</button></li>
+      <li><button onclick="pauseAudio()">Pause Audio</button></li>
+      <li><button onclick="clearAudio()">Clear Audio</button></li>
+    </ul>
+  </div>
+  
 
 
   <script src="assets/js/p5.js"></script>

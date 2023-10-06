@@ -1,4 +1,32 @@
 body {
-
     background-color: #000000;
   }
+
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height:400px;
+    padding: 20px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 20px;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu li:last-child {
+    border-bottom: none;
+  }
+  
