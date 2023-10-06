@@ -54,8 +54,6 @@ function draw() {
 }
 
 
-
-
 class Particle {
   constructor() {
     this.pos = p5.Vector.random2D().mult(250)
@@ -91,74 +89,75 @@ class Particle {
   }
 }
 
-function storeAudio() {
-  const file = audioInput.files[0];
-  if (!file) return alert('Please select a file');
 
-  const reader = new FileReader();
-  reader.readAsArrayBuffer(file);
+function storeAudio() {
+  const file = audioInput.files[0]
+  if (!file) return alert('Please select a file')
+
+  const reader = new FileReader()
+  reader.readAsArrayBuffer(file)
   reader.onload = (event) => {
     const audioData = event.target.result;
     openDB().then(db => {
-      addData(db, 'audio', audioData);
-    });
-  };
+      addData(db, 'audio', audioData)
+    })
+  }
 }
 
 
 function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('audioDB', 1);
+    const request = indexedDB.open('audioDB', 1)
 
     request.onupgradeneeded = (event) => {
-      db = event.target.result;
-      db.createObjectStore('audio', { autoIncrement: true });
-    };
+      db = event.target.result
+      db.createObjectStore('audio', { autoIncrement: true })
+    }
 
     request.onsuccess = (event) => {
-      resolve(event.target.result);
-    };
+      resolve(event.target.result)
+    }
 
     request.onerror = (event) => {
-      reject('Error opening DB');
-    };
-  });
+      reject('Error opening DB')
+    }
+  })
 }
 
 function addData(db, storeName, data) {
-  const transaction = db.transaction([storeName], 'readwrite');
-  const store = transaction.objectStore(storeName);
-  store.add(data);
+  const transaction = db.transaction([storeName], 'readwrite')
+  const store = transaction.objectStore(storeName)
+  store.add(data)
 }
 
 function retrieveData(db, storeName) {
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([storeName], 'readonly');
-    const store = transaction.objectStore(storeName);
-    const getRequest = store.getAll();
+    const transaction = db.transaction([storeName], 'readonly')
+    const store = transaction.objectStore(storeName)
+    const getRequest = store.getAll()
 
     getRequest.onsuccess = (event) => {
-      resolve(event.target.result[0]); // Gets the first audio data found, adjust as needed
-    };
+      resolve(event.target.result[0]) // Gets the first audio data found, adjust as needed
+    }
 
     getRequest.onerror = (event) => {
-      reject('Error retrieving data');
-    };
-  });
+      reject('Error retrieving data')
+    }
+  })
 }
 
 function clearAudio() {
   openDB().then(db => {
-    clearData(db, 'audio');
+    clearData(db, 'audio')
     if (song) {
-      song.stop(); // Stop the current song if it is playing
-      song.dispose(); // Dispose of the song to free up memory
-      song = null; // Set song to null
+      song.stop() // Stop the current song if it is playing
+      song.dispose() // Dispose of the song to free up memory
+      song = null // Set song to null
     }
-    alert('Audio cleared successfully');
+    alert('Audio cleared successfully')
   }).catch(err => {
-    console.error('Error clearing audio:', err);
-  });
+    console.error('Error clearing audio:', err)
+  })
 }
 
 function clearData(db, storeName) {
@@ -172,39 +171,39 @@ function clearData(db, storeName) {
     };
     
     clearRequest.onerror = (event) => {
-      reject('Error clearing data'); // Reject the promise with an error message
-    };
-  });
+      reject('Error clearing data') // Reject the promise with an error message
+    }
+  })
 }
 
 function loadAudio() {
   openDB().then(db => {
     retrieveData(db, 'audio').then(audioData => {
-      if (!audioData) return alert('No audio found');
+      if (!audioData) return alert('No audio found')
 
-      const audioBlob = new Blob([audioData]);
-      const audioUrl = URL.createObjectURL(audioBlob);
-      if (song) song.dispose(); // Dispose of previous song
-      song = loadSound(audioUrl); // Load the new song without playing
-    });
+      const audioBlob = new Blob([audioData])
+      const audioUrl = URL.createObjectURL(audioBlob)
+      if (song) song.dispose() // Dispose of previous song
+      song = loadSound(audioUrl) // Load the new song without playing
+    })
   }).catch(err => {
-    console.error('Error loading audio:', err);
+    console.error('Error loading audio:', err)
   });
 }
 
 function playAudio() {
   if (song && !song.isPlaying()) {
-    song.play(); // Play the song if it is not already playing
+    song.play() // Play the song if it is not already playing
   } else {
-    alert('No audio is loaded or it is already playing');
+    alert('No audio is loaded or it is already playing')
   }
 }
 
 function pauseAudio() {
   if (song && song.isPlaying()) {
-    song.pause(); // Pause the song if it is playing
+    song.pause() // Pause the song if it is playing
   } else {
-    alert('No audio is loaded or it is already paused');
+    alert('No audio is loaded or it is already paused')
   }
 }
 
