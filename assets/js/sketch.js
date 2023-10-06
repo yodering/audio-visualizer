@@ -113,6 +113,11 @@ class Particle {
   }
 }
 
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function storeImage() {
   const file = imageInput.files[0];
   if (!file) return alert('Please select an image file');
