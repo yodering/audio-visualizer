@@ -184,11 +184,6 @@ function clearImageData(db, storeName) {
   });
 }
 
-
-
-
-
-
 function storeAudio() {
   const file = audioInput.files[0]
   if (!file) return alert('Please select a file')
@@ -207,7 +202,6 @@ function storeAudio() {
 function openDB() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open('audioDB', 2); // You might need to increase the version number
-
     request.onupgradeneeded = (event) => {
       db = event.target.result;
       if (!db.objectStoreNames.contains('audio')) {
@@ -317,6 +311,19 @@ document.addEventListener('keydown', function(event) {
     toggleMenu()
   }
 })
+
+document.addEventListener('keydown', function(event) {
+  if (event.key.toLowerCase() === 'd') {
+    playAudio()
+  }
+})
+
+document.addEventListener('keydown', function(event) {
+  if (event.key.toLowerCase() === 'f') {
+    pauseAudio()
+  }
+})
+
 
 function toggleMenu() {
   const menu = document.getElementById('menu')
