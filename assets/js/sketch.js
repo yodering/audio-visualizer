@@ -32,7 +32,7 @@ function draw() {
     rotate(random(-0.5, 0.5))
   }
   if (img) {
-    image(img, 0, 0, width, height); // or your desired coordinates and dimensions
+    image(img, 0, 0, width, height); 
   }
   
 
