@@ -17,8 +17,10 @@ function setup() {
   rectMode(CENTER)
 }
 
+
+
 function draw() {
-  background(0)
+  background(40)
   stroke(255)
   strokeWeight(3)
   noFill()
