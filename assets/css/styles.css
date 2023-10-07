@@ -203,6 +203,26 @@ html, body {
     left: 50px;
   }
 
+  .x-font {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color:rgb(252, 252, 252);
+    position:absolute;
+    top:10px;
+    left: 50px;
+  }
+
+  .x-spacing {
+    background-color: transparent;
+    position:absolute;
+    left: 630px;
+    top: 0px;
+  }
+
+  .x-spacing:hover {
+    cursor:pointer;
+  }
+
 
   .audio-buttons {
     position:absolute;

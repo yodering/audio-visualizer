@@ -319,6 +319,10 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
+document.getElementById("x").addEventListener('click', function(event) {
+  toggleMenu()
+})
+
 document.addEventListener('keydown', function(event) {
   if (event.key.toLowerCase() === 'd') {
     playAudio()
