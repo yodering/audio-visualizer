@@ -24,6 +24,7 @@ html, body {
     background-color: rgb(17, 17, 17);
     border: solid;
     border-width: 2px;
+    border-radius: 1px;
     border-color: rgb(129, 131, 131);
   }
   
@@ -42,6 +43,20 @@ html, body {
   }
   
 
-  .font {
+  .button {
     font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+
+  input::file-selector-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+ 
   }
