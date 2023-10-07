@@ -23,22 +23,60 @@
 
     <div>
 
-      <div class="audio-buttons"> 
-      <input type="file" id="audioInput" accept="audio/mp3" style="display:none;">
-      <label for="audioInput" class="choose-audio-button">choose audio</label>
-      <button onclick="storeAudio()" class="upload-audio-button">upload audio</button>
-      <button onclick="loadAudio()" class="load-audio-button">load audio</button>
-      <button onclick="playAudio()" class="play-audio-button">play audio</button>
-      <button onclick="pauseAudio()" class="pause-audio-button">pause audio</button>
-      <button onclick="clearAudio()" class="clear-audio-button">clear audio</button>
+      <div class="audio-settings-spacing">
+        <p class="audio-settings-font"> audio</p>
       </div>
 
+      <div class="audio-buttons"> 
+
+        <div>
+      <input type="file" id="audioInput" accept="audio/mp3" style="display:none;">
+      <label for="audioInput" class="choose-audio-button">choose audio</label>
+        </div>
+
+        <div>
+      <button onclick="storeAudio()" class="upload-audio-button">upload audio</button>
+        </div>
+
+        <div>
+      <button onclick="loadAudio()" class="load-audio-button">load audio</button>
+        </div>
+
+        <div>
+      <button onclick="playAudio()" class="play-audio-button">play audio</button>
+        </div>
+
+        <div>
+      <button onclick="pauseAudio()" class="pause-audio-button">pause audio</button>
+        </div>
+
+        <div>
+      <button onclick="clearAudio()" class="clear-audio-button">clear audio</button>
+        </div>
+
+      </div>
+
+
+
       <div class="background-buttons">
+
+        <div>
       <input type="file" id="imageInput" accept="image/*" style="display:none;">
       <label for="imageInput" class="choose-img-button">choose image</label>
+        </div>
+
+        <div>
       <button onclick="storeImage()" class="upload-img-button">upload image</button>
+        </div>
+
+        <div>
       <button onclick="loadAndDisplayImage()" class="display-img-button">display image</button>
+        </div>
+
+        <div>
       <button onclick="clearImage()" class="clear-img-button">clear image</button>
+       </div>
+
       </div>
 
     </div>
