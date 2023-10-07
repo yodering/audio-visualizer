@@ -10,7 +10,7 @@ var imageInput
 function setup() {
   createCanvas(windowWidth, windowHeight)
   angleMode(DEGREES)
-  fft = new p5.FFT()
+  fft = new p5.FFT(0.4)
   audioInput = document.getElementById('audioInput')
   imageInput = document.getElementById('imageInput')
   imageMode(CENTER)
@@ -28,7 +28,7 @@ function draw() {
   amp = fft.getEnergy(20, 200)
 
   push()
-  if (amp > 230) {
+  if (amp > 235) {
     rotate(random(-0.5, 0.5))
   }
   if (img) {
