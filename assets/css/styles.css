@@ -13,34 +13,29 @@ html, body {
 }
 
 
-  .menu {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 752px;
-    height: 400px;
-    background-color: rgb(17, 17, 17);
-    border: solid;
-    border-width: 2px;
-    border-radius: 1px;
-    border-color: rgb(129, 131, 131);
-  }
+.menu {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 752px;
+  height: 400px;
+  background-color: rgb(17, 17, 17);
+  border: solid;
+  border-width: 2px;
+  border-radius: 1px;
+  border-color: rgb(129, 131, 131);
+  transition: opacity 0.3s, visibility 0.2s;
+}
+
+.menu.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
   
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu li {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .menu li:last-child {
-    border-bottom: none;
-  }
 
 
   .choose-audio-button {
