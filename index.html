@@ -21,7 +21,8 @@
     <div>
 
       <div class="audio-buttons"> 
-      <input type="file" id="audioInput" accept="audio/mp3" class="choose-audio-button">
+      <input type="file" id="audioInput" accept="audio/mp3" style="display:none;">
+      <label for="audioInput" class="choose-audio-button">choose audio</label>
       <button onclick="storeAudio()" class="upload-audio-button">upload audio</button>
       <button onclick="loadAudio()" class="load-audio-button">load audio</button>
       <button onclick="playAudio()" class="play-audio-button">play audio</button>
@@ -30,7 +31,8 @@
       </div>
 
       <div class="background-buttons">
-      <input type="file" id="imageInput" accept="image/*" class="choose-img-button">
+      <input type="file" id="imageInput" accept="image/*" style="display:none;">
+      <label for="audioInput" class="choose-img-button">choose image</label>
       <button onclick="storeImage()" class="upload-img-button">upload image</button>
       <button onclick="loadAndDisplayImage()" class="display-img-button">display image</button>
       <button onclick="clearImage()" class="clear-img-button">clear image</button>

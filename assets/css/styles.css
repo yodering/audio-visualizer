@@ -45,6 +45,7 @@ html, body {
     border-radius: 2px;
     border: none;
     transition-duration: 0.5s;
+    font-size:14px;
   }
 
  .choose-audio-button:hover {
@@ -129,6 +130,7 @@ html, body {
     border-radius: 2px;
     border: none;
     transition-duration: 0.5s;
+    font-size: 14px;
   }
 
   .choose-img-button:hover {
