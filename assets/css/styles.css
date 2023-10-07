@@ -20,7 +20,7 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 752px;
-    height: 621px;
+    height: 400px;
     background-color: rgb(17, 17, 17);
     border: solid;
     border-width: 2px;
@@ -41,7 +41,6 @@ html, body {
   .menu li:last-child {
     border-bottom: none;
   }
-  
 
 
   .choose-audio-button {
