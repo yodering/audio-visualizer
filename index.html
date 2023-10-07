@@ -11,18 +11,33 @@
 
 
   <div class="menu" id="menu">
-    <ul>
-      <li><input type="file" id="audioInput" accept="audio/mp3" class="button"></li>
-      <li><button onclick="storeAudio()" class="button">Upload Audio</button></li>
-      <li><button onclick="loadAudio()" class="button"">Load Audio</button></li>
-      <li> <button onclick="playAudio()" class="button"">Play Audio</button></li>
-      <li><button onclick="pauseAudio()" class="button">Pause Audio</button></li>
-      <li><button onclick="clearAudio()" class="button">Clear Audio</button></li>
-      <li><input type="file" id="imageInput" accept="image/*" class="button"></li>
-      <li><button onclick="storeImage()" class="button">Upload Image</button></li>
-      <li><button onclick="loadAndDisplayImage()" class="button">Display Image</button></li>
-      <li><button onclick="clearImage()" class="button">Clear Image</button></li>
-    </ul>
+    
+    <div class="settings-spacing">
+      <p class="settings-font">settings</p>
+    </div>
+
+    <div class="menu-bar"></div>
+
+    <div>
+
+      <div class="audio-buttons">
+      <input type="file" id="audioInput" accept="audio/mp3" class="choose-audio-button">
+      <button onclick="storeAudio()" class="upload-audio-button">Upload Audio</button>
+      <button onclick="loadAudio()" class="load-audio-button">Load Audio</button>
+      <button onclick="playAudio()" class="play-audio-button">Play Audio</button>
+      <button onclick="pauseAudio()" class="pause-audio-button">Pause Audio</button>
+      <button onclick="clearAudio()" class="clear-audio-button">Clear Audio</button>
+      </div>
+
+      <div class="background-buttons">
+      <input type="file" id="imageInput" accept="image/*" class="choose-img-button">
+      <button onclick="storeImage()" class="upload-img-button">Upload Image</button>
+      <button onclick="loadAndDisplayImage()" class="display-img-button">Display Image</button>
+      <button onclick="clearImage()" class="clear-img-button">Clear Image</button>
+      </div>
+
+    </div>
+
   </div>
   
 

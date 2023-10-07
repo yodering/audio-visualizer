@@ -52,6 +52,86 @@ html, body {
   }
 
 
+  .choose-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .upload-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .load-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .play-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .pause-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .clear-audio-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .choose-img-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .upload-img-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .display-img-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
+  .clear-img-button {
+    font-family: 'Rubik', sans-serif;
+    color:rgb(252, 252, 252);
+    background-color:rgb(106, 108, 108);
+    border-radius: 2px;
+    border: none;
+  }
+
   input::file-selector-button {
     font-family: 'Rubik', sans-serif;
     color:rgb(252, 252, 252);
@@ -59,4 +139,40 @@ html, body {
     border-radius: 2px;
     border: none;
  
+  }
+
+  .settings-spacing {
+    background-color: transparent;
+    height:78px;
+  }
+
+  .settings-font {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color:rgb(252, 252, 252);
+    position:absolute;
+    top:10px;
+    left: 50px;
+  }
+
+
+  .audio-buttons {
+    position:absolute;
+    top:150px;
+    left: 40px;
+  }
+
+  .background-buttons {
+    position:absolute;
+    top:250px;
+    left: 40px;
+  }
+
+  .menu-bar {
+    position:absolute;
+    left: 35px;
+    top:90px;
+    background-color: rgb(129, 131, 131);
+    width:680px;
+    height: 2px;
   }
