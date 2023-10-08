@@ -335,6 +335,12 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
+document.addEventListener('keydown', function(event) {
+  if (event.key.toLowerCase() === 'c') {
+    clearAudio()
+  }
+})
+
 function toggleMenu() {
   const menu = document.getElementById('menu')
   menu.classList.toggle('visible')
