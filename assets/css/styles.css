@@ -148,6 +148,9 @@ html, body {
     border: none;
     transition-duration: 0.5s;
     font-size: 14px;
+    position:relative;
+    left:10px;
+    top:-20px;
   }
 
   .choose-img-button:hover {
@@ -162,6 +165,9 @@ html, body {
     border-radius: 2px;
     border: none;
     transition-duration: 0.5s;
+    position:relative;
+    left:125px;
+    top:-39px;
   }
 
   .upload-img-button:hover {
@@ -176,6 +182,9 @@ html, body {
     border-radius: 2px;
     border: none;
     transition-duration: 0.5s;
+    position:relative;
+    left:244px;
+    top:-58px;
   }
 
   .display-img-button:hover {
@@ -190,6 +199,9 @@ html, body {
     border-radius: 2px;
     border: none;
     transition-duration: 0.5s;
+    position:relative;
+    left:365px;
+    top:-77px;
   }
 
   .clear-img-button:hover {
@@ -271,5 +283,17 @@ html, body {
   .audio-settings-spacing {
     position:absolute;
     top:90px;
+    left:50px;
+  }
+
+  .bg-settings-font {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color:rgb(252, 252, 252);
+  }
+
+  .bg-settings-spacing {
+    position:absolute;
+    top:165px;
     left:50px;
   }
