@@ -120,7 +120,7 @@ html, body {
 .background-buttons {
     position: absolute;
     display: flex;
-    gap: 10px; /* Adjust the gap as needed */
+    gap: 10px; 
 }
 
 .audio-buttons {
@@ -129,8 +129,14 @@ html, body {
 }
 
 .background-buttons {
-    top: 230px;
-    left: 40px;
+  top: 260px; /* Adjusted value, was 230px */
+  left: 40px;
+}
+
+.bg-settings-spacing {
+  position:absolute;
+  top:195px; /* Adjusted value, was 165px */
+  left:50px;
 }
 
   .menu-bar {
@@ -155,8 +161,4 @@ html, body {
   }
 
 
-  .bg-settings-spacing {
-    position:absolute;
-    top:165px;
-    left:50px;
-  }
+ 
