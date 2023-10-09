@@ -24,7 +24,7 @@ function draw() {
   stroke(255)
   strokeWeight(3)
   noFill()
-  
+
   translate(width / 2, height / 2)
   fft.analyze()
   amp = fft.getEnergy(20, 200)
@@ -257,9 +257,9 @@ function clearAudio() {
   openDB().then(db => {
     clearData(db, 'audio')
     if (song) {
-      song.stop() // Stop the current song if it is playing
-      song.dispose() // Dispose of the song to free up memory
-      song = null // Set song to null
+      song.stop() // stop the current song if it is playing
+      song.dispose() // dispose of the song to free up memory
+      song = null // set song to null
     }
     alert('Audio cleared successfully')
   }).catch(err => {
@@ -271,7 +271,7 @@ function clearData(db, storeName) {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([storeName], 'readwrite');
     const store = transaction.objectStore(storeName);
-    const clearRequest = store.clear(); // This will clear all records in the object store
+    const clearRequest = store.clear(); 
     
     clearRequest.onsuccess = (event) => {
       resolve(); 
@@ -290,8 +290,8 @@ function loadAudio() {
 
       const audioBlob = new Blob([audioData])
       const audioUrl = URL.createObjectURL(audioBlob)
-      if (song) song.dispose() // Dispose of previous song
-      song = loadSound(audioUrl) // Load the new song without playing
+      if (song) song.dispose() // dispose of previous song
+      song = loadSound(audioUrl) // load the new song without playing
     })
   }).catch(err => {
     console.error('Error loading audio:', err)
@@ -300,7 +300,7 @@ function loadAudio() {
 
 function playAudio() {
   if (song && !song.isPlaying()) {
-    song.play() // Play the song if it is not already playing
+    song.play() // play the song if it is not already playing
   } else {
     alert('No audio is loaded or it is already playing')
   }
@@ -308,7 +308,7 @@ function playAudio() {
 
 function pauseAudio() {
   if (song && song.isPlaying()) {
-    song.pause() // Pause the song if it is playing
+    song.pause() // pause the song if it is playing
   } else {
     alert('No audio is loaded or it is already paused')
   }
