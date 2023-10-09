@@ -24,7 +24,7 @@ function draw() {
   stroke(255)
   strokeWeight(3)
   noFill()
-
+  
   translate(width / 2, height / 2)
   fft.analyze()
   amp = fft.getEnergy(20, 200)
@@ -77,6 +77,7 @@ function draw() {
       particles.splice(i, 1)
     }
   }
+  
 }
 
 

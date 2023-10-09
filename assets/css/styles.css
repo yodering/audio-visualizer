@@ -35,179 +35,51 @@ html, body {
   visibility: visible;
 }
 
-  
 
-
-  .choose-audio-button {
+.choose-audio-button,
+.upload-audio-button,
+.load-audio-button,
+.play-audio-button,
+.pause-audio-button,
+.clear-audio-button,
+.choose-img-button,
+.upload-img-button,
+.display-img-button,
+.clear-img-button {
     font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
+    color: rgb(252, 252, 252);
+    background-image: linear-gradient(rgb(129, 131, 131), rgb(28, 28, 28));
+    border-radius: 99px;
     border: none;
     transition-duration: 0.5s;
-    font-size:14px;
-    position:relative;
-    left:10px
-  }
+    height: 29px;
+    width: 105px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
- .choose-audio-button:hover {
-  box-shadow: 0 0 10px 2px #FFFFFF;
-  cursor:pointer;
- }
 
-  .upload-audio-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:120px;
-    top: -19px;
-  }
-
-  .upload-audio-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .load-audio-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:235px;
-    top: -38px;
-  }
-
-  .load-audio-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .play-audio-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:334px;
-    top:-57px;
-  }
-
-  .play-audio-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .pause-audio-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:431px;
-    top:-76px;
-  }
-
-  .pause-audio-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .clear-audio-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:540px;
-    top:-95px;
-  }
-
-  .clear-audio-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .choose-img-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    font-size: 14px;
-    position:relative;
-    left:10px;
-    top:-20px;
-  }
-
-  .choose-img-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .upload-img-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:125px;
-    top:-39px;
-  }
-
-  .upload-img-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .display-img-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:244px;
-    top:-58px;
-  }
-
-  .display-img-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
-
-  .clear-img-button {
-    font-family: 'Rubik', sans-serif;
-    color:rgb(252, 252, 252);
-    background-color:rgb(106, 108, 108);
-    border-radius: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    position:relative;
-    left:365px;
-    top:-77px;
-  }
-
+  .choose-audio-button:hover,
+  .upload-audio-button:hover,
+  .load-audio-button:hover,
+  .play-audio-button:hover,
+  .pause-audio-button:hover,
+  .clear-audio-button:hover,
+  .choose-img-button:hover,
+  .upload-img-button:hover,
+  .display-img-button:hover,
   .clear-img-button:hover {
-    box-shadow: 0 0 10px 2px #FFFFFF;
-    cursor:pointer;
-   }
+    box-shadow: 0 0 10px 2px #FFFFFF; 
+    cursor: pointer;
+}
+
+.choose-audio-button, .choose-img-button {
+  font-size: 14px; 
+}
+
 
   input::file-selector-button {
     font-family: 'Rubik', sans-serif;
@@ -215,7 +87,6 @@ html, body {
     background-color:rgb(106, 108, 108);
     border-radius: 2px;
     border: none;
- 
   }
 
   .settings-spacing {
@@ -223,7 +94,7 @@ html, body {
     height:78px;
   }
 
-  .settings-font {
+  .settings-font, .x-font {
     font-family: 'Rubik', sans-serif;
     font-size: 24px;
     color:rgb(252, 252, 252);
@@ -232,14 +103,6 @@ html, body {
     left:50px;
   }
 
-  .x-font {
-    font-family: 'Rubik', sans-serif;
-    font-size: 24px;
-    color:rgb(252, 252, 252);
-    position:absolute;
-    top:10px;
-    left: 50px;
-  }
 
   .x-spacing {
     background-color: transparent;
@@ -253,17 +116,22 @@ html, body {
   }
 
 
-  .audio-buttons {
-    position:absolute;
-    top:150px;
-    left: 40px;
-  }
+  .audio-buttons,
+.background-buttons {
+    position: absolute;
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+}
 
-  .background-buttons {
-    position:absolute;
-    top:250px;
+.audio-buttons {
+    top: 150px;
     left: 40px;
-  }
+}
+
+.background-buttons {
+    top: 230px;
+    left: 40px;
+}
 
   .menu-bar {
     position:absolute;
@@ -274,7 +142,7 @@ html, body {
     height:2px;
   }
 
-  .audio-settings-font {
+  .audio-settings-font, .bg-settings-font {
     font-family: 'Rubik', sans-serif;
     font-size: 24px;
     color:rgb(252, 252, 252);
@@ -286,11 +154,6 @@ html, body {
     left:50px;
   }
 
-  .bg-settings-font {
-    font-family: 'Rubik', sans-serif;
-    font-size: 24px;
-    color:rgb(252, 252, 252);
-  }
 
   .bg-settings-spacing {
     position:absolute;
