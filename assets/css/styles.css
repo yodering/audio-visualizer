@@ -94,13 +94,22 @@ html, body {
     height:78px;
   }
 
-  .settings-font, .x-font {
+  .x-font {
     font-family: 'Rubik', sans-serif;
     font-size: 24px;
     color:rgb(252, 252, 252);
     position:absolute;
     top:10px;
     left:50px;
+  }
+
+  .settings-font {
+    left:45px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color:rgb(252, 252, 252);
+    position:absolute;
+    top:10px;
   }
 
 
