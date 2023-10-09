@@ -129,13 +129,13 @@ html, body {
 }
 
 .background-buttons {
-  top: 260px; /* Adjusted value, was 230px */
+  top: 260px; 
   left: 40px;
 }
 
 .bg-settings-spacing {
   position:absolute;
-  top:195px; /* Adjusted value, was 165px */
+  top:195px; 
   left:50px;
 }
 
