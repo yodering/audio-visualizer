@@ -175,15 +175,12 @@
 
   .cogwheel-space {
     position: fixed;
-    opacity:0%;
+    opacity:50%;
     top: 95%;
     left:97%;
     transition:0.5s;
   }
 
-  .cogwheel-space:hover {
-    opacity: 50%
-  }
 
   .cogwheel {
     width:30px;
@@ -193,3 +190,6 @@
   .cogwheel-space:hover {
     cursor:pointer;
   }
+
+  
+
