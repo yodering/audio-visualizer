@@ -342,10 +342,15 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
+document.querySelector(".cogwheel-space").addEventListener('click', function(event) {
+  toggleMenu()
+})
+
 function toggleMenu() {
   const menu = document.getElementById('menu')
   menu.classList.toggle('visible')
 }
+
 
 
 
