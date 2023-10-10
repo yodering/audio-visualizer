@@ -35,6 +35,13 @@
     visibility: visible;
   }
 
+  .audio-buttons,
+  .background-buttons {
+    position: absolute;
+    display: flex;
+    gap: 10px; 
+  }
+
 
   .choose-audio-button,
   .upload-audio-button,
@@ -89,10 +96,6 @@
     border: none;
   }
 
-  .settings-spacing {
-    background-color: transparent;
-    height:78px;
-  }
 
   .x-font {
     font-family: 'Rubik', sans-serif;
@@ -112,6 +115,11 @@
     top:10px;
   }
 
+  .settings-spacing {
+    background-color: transparent;
+    height:78px;
+  }
+
 
   .x-spacing {
     background-color: transparent;
@@ -120,17 +128,12 @@
     top: 0px;
   }
 
+
   .x-spacing:hover {
     cursor:pointer;
   }
 
 
-  .audio-buttons,
-  .background-buttons {
-    position: absolute;
-    display: flex;
-    gap: 10px; 
-  }
 
   .audio-buttons {
     top: 150px;
