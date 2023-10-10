@@ -191,5 +191,14 @@
     cursor:pointer;
   }
 
+
+  .checkbox {
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    color:rgb(252, 252, 252);
+    position:absolute;
+    top:320px;
+    left:45px;
+  }
   
 

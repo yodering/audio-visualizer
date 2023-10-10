@@ -346,6 +346,20 @@ document.querySelector(".cogwheel-space").addEventListener('click', function(eve
   toggleMenu()
 })
 
+function toggleCheckBox() {
+  var checkBox = document.getElementById("checkInput");
+  var cogWheel = document.querySelector('.cogwheel-space');
+  if (checkBox.checked) {
+    cogWheel.style.opacity = "0";
+  } else {
+    cogWheel.style.opacity = "0.5";
+  }
+}
+
+document.getElementById("checkInput").addEventListener('change', toggleCheckBox);
+
+
+
 function toggleMenu() {
   const menu = document.getElementById('menu')
   menu.classList.toggle('visible')
